@@ -1,4 +1,4 @@
-package com.example.jvmexplorer.cli;
+package com.github.naton1.jvmexplorer.cli;
 
 import com.sun.tools.attach.VirtualMachine;
 import com.sun.tools.attach.VirtualMachineDescriptor;

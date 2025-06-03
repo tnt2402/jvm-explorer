@@ -1,4 +1,8 @@
-package com.example.jvmexplorer.cli;
+package com.github.naton1.jvmexplorer.cli;
+
+import com.sun.tools.attach.VirtualMachineDescriptor;
+
+import java.util.List;
 
 public class CLIHandler {
     private final JVMManager jvmManager;
