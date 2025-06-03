@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.File;
 
 @Slf4j
-public class JvmExplorer extends Application {
+public class JvmExplorerCLI extends Application {
 
 	public static final File APP_DIR = new File(System.getProperty("user.home"), "jvm-explorer");
 

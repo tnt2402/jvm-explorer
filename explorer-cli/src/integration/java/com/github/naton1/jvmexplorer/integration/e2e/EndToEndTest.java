@@ -1,8 +1,9 @@
 package com.github.naton1.jvmexplorer.integration.e2e;
 
-import com.github.naton1.jvmexplorer.JvmExplorerCLI;
+import com.github.naton1.jvmexplorer.JvmExplorer;
 import com.github.naton1.jvmexplorer.integration.helper.AppHelper;
 import com.github.naton1.jvmexplorer.integration.helper.FxRobotPlus;
+import lombok.experimental.Delegate;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -47,7 +48,7 @@ abstract class EndToEndTest {
 		// Closing the stage kills the executor service, and highlighting throws an unhandled exception causing the
 		// test to fail
 		WaitForAsyncUtils.autoCheckException = false;
-		FxToolkit.setupApplication(JvmExplorerCLI.class);
+		FxToolkit.setupApplication(JvmExplorer.class);
 		this.fxRobot = new FxRobotPlus(fxRobot);
 		this.appHelper = new AppHelper(this.fxRobot);
 	}

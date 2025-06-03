@@ -13,7 +13,7 @@ public class Startup {
 		Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
 			log.warn("Thread uncaught exception: " + t, e);
 		});
-		JvmExplorer.launch(JvmExplorer.class, args);
+		JvmExplorerCLI.launch(JvmExplorerCLI.class, args);
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.github.naton1.jvmexplorer.settings;
 
-import com.github.naton1.jvmexplorer.JvmExplorer;
+import com.github.naton1.jvmexplorer.JvmExplorerCLI;
 import com.google.gson.Gson;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -20,7 +20,7 @@ import java.util.Objects;
 @Value
 public class JvmExplorerSettings {
 
-	public static final File DEFAULT_SETTINGS_FILE = new File(JvmExplorer.APP_DIR, "settings.json");
+	public static final File DEFAULT_SETTINGS_FILE = new File(JvmExplorerCLI.APP_DIR, "settings.json");
 
 	private static final Gson GSON = FxGson.coreBuilder()
 	                                       .serializeSpecialFloatingPointValues()

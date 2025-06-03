@@ -1,7 +1,7 @@
 package com.github.naton1.jvmexplorer.fx.classes;
 
 import com.esotericsoftware.minlog.Log;
-import com.github.naton1.jvmexplorer.JvmExplorer;
+import com.github.naton1.jvmexplorer.JvmExplorerCLI;
 import com.github.naton1.jvmexplorer.agent.AgentException;
 import com.github.naton1.jvmexplorer.agent.AgentPreparer;
 import com.github.naton1.jvmexplorer.agent.RunningJvm;
@@ -50,7 +50,7 @@ public class LoadedClassesController {
 	private static final int CLASSES_NOT_LOADING = -1;
 
 	private static final String AGENT_PATH = "agents/agent.jar";
-	private static final File AGENT_LOG_FILE = new File(JvmExplorer.APP_DIR, "logs/agent.log");
+	private static final File AGENT_LOG_FILE = new File(JvmExplorerCLI.APP_DIR, "logs/agent.log");
 
 	static {
 		// Try to clean up on initial load. Prevents the file from growing too large.

@@ -1,10 +1,10 @@
 plugins {
     java
-    id("io.freefair.lombok") version "6.5.0.3"
     application
     jacoco
-    id("com.google.osdetector") version "1.7.0"
     id("org.panteleyev.jpackageplugin") version "1.3.1"
+    id("com.google.osdetector") version "1.7.0"
+
 }
 
 group = "com.github.naton1"
@@ -21,9 +21,9 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
-//application {
-//    mainClass_2.set("com.github.naton1.jvmexplorer.Startup")
-//}
+application {
+    mainClass.set("com.github.naton1.jvmexplorer.cli.Main")
+}
 
 val asmVersion = "9.3"
 val javaFxVersion = "18.0.1"
@@ -32,37 +32,9 @@ val javaFxPlatform = if (platformOverride != null) JavaFXPlatform.detect(platfor
 
 dependencies {
     implementation(project(":protocol"))
-
-    implementation("org.slf4j:slf4j-api:1.7.36")
-    implementation("ch.qos.logback:logback-core:1.2.11")
-    implementation("ch.qos.logback:logback-classic:1.2.11")
-
-    implementation("com.esotericsoftware:kryonet:2.22.0-RC1")
-    implementation("org.quiltmc:quiltflower:1.8.1")
-    implementation("org.fxmisc.richtext:richtextfx:0.10.9")
     implementation("com.google.code.gson:gson:2.9.0")
-    implementation("org.hildan.fxgson:fx-gson:4.0.1") {
-        // This package includes all javafx dependencies for some reason...
-        exclude("org.openjfx")
-    }
-
-    implementation("org.ow2.asm:asm:${asmVersion}")
-    implementation("org.ow2.asm:asm-util:${asmVersion}")
-
-    implementation("org.openjdk.asmtools:asmtools-core:7.0.b10-ea")
-
-    implementation("org.openjfx:javafx-base:${javaFxVersion}:${javaFxPlatform}")
-    implementation("org.openjfx:javafx-controls:${javaFxVersion}:${javaFxPlatform}")
-    implementation("org.openjfx:javafx-graphics:${javaFxVersion}:${javaFxPlatform}")
-    implementation("org.openjfx:javafx-fxml:${javaFxVersion}:${javaFxPlatform}")
-
-    testImplementation("org.junit.jupiter:junit-jupiter:5.9.0")
-    testImplementation("org.testfx:testfx-junit5:4.0.16-alpha")
-    testImplementation("org.mockito:mockito-core:4.6.1")
-    testImplementation("org.mockito:mockito-junit-jupiter:4.6.1")
-
-    // Allow screenshots
-    testImplementation("org.openjfx:javafx-swing:${javaFxVersion}:${javaFxPlatform}")
+    implementation("org.ow2.asm:asm:9.7")
+    implementation("org.openjdk.jmc:common:9.1.0")
 }
 
 sourceSets {
@@ -111,7 +83,7 @@ tasks {
             if (it.isDirectory) it
             else zipTree(it)
         })
-        archiveBaseName.set("jvm-explorer-cli")
+        archiveBaseName.set("jvm-explorer")
         if (platformOverride != null) {
             archiveClassifier.set(platformOverride)
         }
